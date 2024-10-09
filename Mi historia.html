@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Historia Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #00ffcc;
+            font-size: 2.5em;
+            animation: fadeIn 2s ease;
+        }
+        .profile-image {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin-bottom: 15px; 
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a, .tab-button {
+            color: #00ffcc;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, border 0.3s ease;
+            cursor: pointer;
+        }
+        nav a:hover, .tab-button:hover {
+            border: 2px solid #00ffcc;
+            background-color: rgba(0, 255, 204, 0.2);
+        }
+        .tab {
+            display: none;
+            padding: 40px 20px;
+            border-radius: 10px;
+            background-color: #222;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+        h2 {
+            color: #00cc99;
+            font-size: 2em;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 10px;
+        }
+        .project-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .project-video {
+            width: 100%; 
+            max-width: 600px; 
+            height: auto; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+        }
+        .project-description {
+            margin-top: 10px;
+            color: #00ffcc;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .active {
+            border: 2px solid #00ffcc;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rating {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+        .rating button {
+            background: none;
+            border: none;
+            color: #000; 
+            cursor: pointer;
+            font-size: 2em;
+            transition: color 0.3s;
+        }
+        .rating button:hover {
+            color: #00ffcc; 
+        }
+        .comments-section {
+            margin-top: 20px;
+        }
+        .comments-section textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #00ffcc;
+            background-color: #222;
+            color: #ffffff;
+        }
+        .comments-section button {
+            background-color: #00ffcc;
+            color: #1a1a1a;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .comment {
+            background-color: #333;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Mi foto.jpg" alt="Imagen de perfil" class="profile-image">
+        <h1>Soy Ingeniero en sistemas</h1>
+        <nav>
+            <button class="tab-button active" onclick="showTab('sobre-mi')">Sobre Mí</button>
+            <button class="tab-button" onclick="showTab('hitos')">Hitos</button>
+            <button class="tab-button" onclick="showTab('reflexiones')">Reflexiones</button>
+            <button class="tab-button" onclick="showTab('contacto')">Contacto</button>
+        </nav>
+    </header>
+
+    <section id="sobre-mi" class="tab">
+        <h2>Sobre Mí</h2>
+        <p>Mi nombre es Edwardo Capellan Rodriguez soy Estudiante de Ingenieria en sistemas, Tengo varios proyectos aun no terminados
+            como Juegos, Programas, aplicaciones entre otras cosas, sigo aprendiendo y mis proyectos que aun estan en proceso pero que me propongo
+            a terminar los el punto siempre esta en nunca rendir se con una idea
+        </p>
+    </section>
+
+    <section id="hitos" class="tab">
+        <h2>Hitos</h2>
+    
+        <!-- Proyecto 1 -->
+        <div class="project-container">
+            <video class="project-video" controls>
+                <source src="proyecto1.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <p class="project-description">Esta aplicacion la cree para darle Fin a las largas Filas para asi poder tener una mejor organizacion
+                dentro de los hospitales aun que, aun no esta terminada aun sigue en proceso de finalizacion este es uno de mis primeros proyectos
+                utilizando python.
+            </p>
+            <div class="rating">
+                <span>Califica este proyecto:</span>
+                <button onclick="rateProject(1, 1)">⭐</button>
+                <button onclick="rateProject(1, 2)">⭐</button>
+                <button onclick="rateProject(1, 3)">⭐</button>
+                <button onclick="rateProject(1, 4)">⭐</button>
+                <button onclick="rateProject(1, 5)">⭐</button>
+            </div>
+            <div id="rating-result-1"></div>
+            <h3>Comentarios</h3>
+            <div class="comments-section">
+                <textarea id="comment-1" rows="4" placeholder="¿Qué le falta a este proyecto?"></textarea>
+                <button onclick="submitComment(1)">Enviar Comentario</button>
+                <div id="comment-list-1"></div> <!-- Sección para mostrar los comentarios -->
+            </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div class="project-container">
+            <video class="project-video" controls>
+                <source src="video2.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <p class="project-description">Desarrollo de un juego de plataformas en 2D como parte de mis estudios.</p>
+            <div class="rating">
+                <span>Califica este proyecto:</span>
+                <button onclick="rateProject(2, 1)">⭐</button>
+                <button onclick="rateProject(2, 2)">⭐</button>
+                <button onclick="rateProject(2, 3)">⭐</button>
+                <button onclick="rateProject(2, 4)">⭐</button>
+                <button onclick="rateProject(2, 5)">⭐</button>
+            </div>
+            <div id="rating-result-2"></div>
+            <h3>Comentarios</h3>
+            <div class="comments-section">
+                <textarea id="comment-2" rows="4" placeholder="¿Qué le falta a este proyecto?"></textarea>
+                <button onclick="submitComment(2)">Enviar Comentario</button>
+                <div id="comment-list-2"></div> <!-- Sección para mostrar los comentarios -->
+            </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="project-container">
+            <video class="project-video" controls>
+                <source src="video3.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <p class="project-description">Lanzamiento de mi primer sitio web personal para mostrar mi portafolio.</p>
+            <div class="rating">
+                <span>Califica este proyecto:</span>
+                <button onclick="rateProject(3, 1)">⭐</button>
+                <button onclick="rateProject(3, 2)">⭐</button>
+                <button onclick="rateProject(3, 3)">⭐</button>
+                <button onclick="rateProject(3, 4)">⭐</button>
+                <button onclick="rateProject(3, 5)">⭐</button>
+            </div>
+            <div id="rating-result-3"></div>
+            <h3>Comentarios</h3>
+            <div class="comments-section">
+                <textarea id="comment-3" rows="4" placeholder="¿Qué le falta a este proyecto?"></textarea>
+                <button onclick="submitComment(3)">Enviar Comentario</button>
+                <div id="comment-list-3"></div> <!-- Sección para mostrar los comentarios -->
+            </div>
+        </div>
+    </section>
+
+    <section id="reflexiones" class="tab">
+        <h2>Reflexiones</h2>
+        <p>Un espacio donde comparto algunas reflexiones sobre mi camino en la programación y el desarrollo de proyectos tomando en cuenta
+            los errores y los logros, cuando te adentras al camino de la programacion tienes que tener en cuenta que no todo es perfecto
+            te cansaras mucho y abra noches en las cuales no puedas dormir pensando en la solucion de un error pero es una carrera muy hermosa
+            y entretenida.</p>
+    </section>
+
+    <section id="contacto" class="tab">
+        <h2>Contacto</h2>
+        <p>Para más información, puedes contactarme a través de mis redes sociales.</p>
+        <p>
+            <a href="https://www.facebook.com/share/nta9j7HictGk8bFN/" target="_blank">
+                <i class="fab fa-facebook" style="color:#00ffcc; font-size: 1.5em;"></i> Facebook
+            </a>
+        </p>
+        <p>
+            <a href="https://www.instagram.com/edwardo.605/profilecard/?igsh=MTBvNnh0MG83dWFtOQ==" target="_blank">
+                <i class="fab fa-instagram" style="color:#00ffcc; font-size: 1.5em;"></i> Instagram
+            </a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; </p>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function (tab) {
+                tab.style.display = 'none';
+                tab.style.opacity = '0';
+            });
+            document.getElementById(tabId).style.display = 'block';
+            setTimeout(function () {
+                document.getElementById(tabId).style.opacity = '1';
+            }, 100);
+            
+            var buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(function (button) {
+                button.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function rateProject(projectId, rating) {
+            var resultDiv = document.getElementById('rating-result-' + projectId);
+            resultDiv.innerHTML = 'Has calificado este proyecto con ' + rating + ' estrellas.';
+        }
+
+        function submitComment(projectId) {
+            var comment = document.getElementById('comment-' + projectId).value;
+            if (comment.trim() !== '') {
+                var commentList = document.getElementById('comment-list-' + projectId);
+                var newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.textContent = comment;
+                commentList.appendChild(newComment);
+                document.getElementById('comment-' + projectId).value = ''; 
+            }
+        }
+    </script>
+</body>
+</html>
